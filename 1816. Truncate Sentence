@@ -1,0 +1,19 @@
+class Solution {
+    public String truncateSentence(String s, int k) {
+        int count=0,indx=0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i) == ' '){
+                count++;
+            }
+
+            if(count >= k){
+                indx = i;
+               break;
+            }else{
+                indx = i+1;
+            }
+        }
+
+        return  s.substring(0,indx);
+    }
+}
