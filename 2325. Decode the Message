@@ -1,0 +1,22 @@
+class Solution {
+    public String decodeMessage(String key, String message) {
+        HashMap<Character, Character> mp = new HashMap<>();
+        int m=(int)'a';
+        for(int i=0;i<key.length();i++){
+            if(key.charAt(i) != ' ' && !mp.containsKey(key.charAt(i))){
+                mp.put(key.charAt(i), (char)m);
+                m = m+1;
+            }
+        }
+        
+        StringBuilder str = new StringBuilder();
+        for(int i=0;i<message.length();i++){
+            if(message.charAt(i) != ' '){
+                str.append(mp.get(message.charAt(i)));
+            }else{
+                str.append(message.charAt(i));
+            }
+        }
+        return str.toString();
+    }
+}
